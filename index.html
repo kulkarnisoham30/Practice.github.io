@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>IEEE project</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: whitesmoke;
+            width: 100vw;
+            height: 20vh;
+            display: inline-flex;
+            align-items: center;
+            position: fixed;
+            z-index: 2;
+        }
+
+        .loading {
+            height: 0.5vh;
+            width: 100vw;
+            background-color: red;
+            animation: soham 2.1s 1 forwards;
+        }
+
+        @keyframes soham {
+            0% {
+                width: 0vw;
+            }
+
+            50% {
+                width: 60vw;
+            }
+
+            90% {
+                width: 95vw;
+            }
+
+            100% {
+                width: 100vw;
+            }
+        }
+
+        .navbar ul {
+            width: 70vw;
+        }
+
+        nav ul li {
+            display: inline-flex;
+            list-style: none;
+            justify-content: center;
+            align-items: center;
+            padding: 5px 9px 5px 9px;
+        }
+
+        .navbar li a {
+            display: inline-block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #955bdd;
+            font-size: 23px;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        }
+
+        .navbar a:hover {
+            color: whitesmoke;
+            background-color: black;
+        }
+
+        .inp {
+            display: flex;
+            justify-content: flex-end;
+            flex-wrap: nowrap;
+            align-items: center;
+        }
+
+        input {
+            display: flex;
+            border: 2.5px solid black;
+            background-color: white;
+            color: green;
+            width: 24vw;
+            height: 4vh;
+        }
+
+        .main {
+            width: 100vw;
+            height: 20vh;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .image-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            filter: blur(5px);
+        }
+
+        .text-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+        }
+
+        .text-overlay h1 {
+            font-size: 27px;
+            margin-bottom: 10px;
+        }
+
+        .text-overlay p {
+            padding: 10px;
+            font-size: 16px;
+
+        }
+
+        .language {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .language a {
+            margin: 20px;
+            border-radius: 100px;
+            text-decoration: none;
+        }
+
+        .language:hover {
+            background-color: #2980b9;
+        }
+
+        .enroll-button {
+            padding: 10px;
+        }
+
+        .information {
+            display: grid;
+            grid-template-columns: auto auto;
+            column-gap: 20px;
+        }
+
+        .image1 {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            width: 49vw;
+        }
+
+        .text {
+            margin-top: 10px;
+            width: 100vw;
+            height: auto;
+            background-color: blue;
+        }
+
+        .text h1 {
+            color: #fffdfd;
+            font-size: 30px;
+            font-weight: bold;
+            padding: 10px;
+        }
+
+        .text p {
+            padding: 10px;
+            color: #04f48f;
+        }
+
+        .language1 {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            padding-top: 10px;
+            padding-bottom: 20px;
+        }
+
+        .contact {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .contact:hover {
+            background-color: whitesmoke;
+            color: #3498db;
+        }
+
+        .footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        }
+
+        .social-icon {
+            padding-bottom: 20px;
+        }
+
+        .social-icon ul li {
+            list-style: none;
+            display: inline-block;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .social-icon a {
+            text-decoration: none;
+            font-size: 30px;
+            font-weight: bold;
+            color: aliceblue;
+        }
+
+        .social-icon a:hover {
+            color: #04f48f;
+        }
+
+        .face a:hover {
+            color: rgb(46, 46, 232);
+        }
+
+        .insta a:hover {
+            color: rgb(224, 23, 197);
+        }
+
+        .link a:hover {
+            color: #3498db;
+        }
+
+        .changing-color-h {
+            display: inline;
+            animation: colorChange 5s infinite;
+            width: 30px;
+            height: 3px;
+        }
+
+        @keyframes colorChange {
+            0% {
+                color: yellow; 
+            }
+            50% {
+                color: red; 
+            }
+            100% {
+                color: yellow; 
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="loading" id="myBox">
+
+        </div>
+        <nav>
+            <div class="navbar">
+                <b>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Your courses</a></li>
+                        <li><a href="#">More</a></li>
+                    </ul>
+                </b>
+            </div>
+            <div class="inp">
+                <input type="text" placeholder="Search Courses">
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="main">
+
+        </div>
+        <div class="image-container">
+            <img src="https://www.lighthouselabs.ca/uploads/post/open_graph_image/459/Coding-vs-programming.jpg"
+                alt="Background Image">
+            <div class="text-overlay">
+                <h1>Master Programming Skills Today</h1>
+                <p>Unlock your potential with our expert programming coaching. Join now!</p>
+                <div class="language1">
+                    <a href="#" class="contact">
+                        Enroll now
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="text">
+                <h1 class="changing-color-h">About us</h1>
+                <p>Welcome to Code with Soham, your premier destination for programming coaching in Mumbai, MH. With a passion for coding and a commitment to excellence, we strive to empower aspiring programmers to unlock their full potential. Our expert instructors offer comprehensive courses and personalized guidance to help you master various programming languages and develop the skills needed to succeed in the ever-evolving tech industry. Whether you are a beginner or an experienced coder looking to upskill, we provide a supportive and dynamic learning environment to help you achieve your goals. Join us today and embark on a transformative coding journey!</p>
+                <div class="language1">
+                    <a href="#" class="contact">
+                        Contact us</a>
+                </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="social-icon">
+            <ul>
+                <li class="face"><a href="#" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                <li class="insta"><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+                <li class="link"><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="#" target="_blank"><i class="fab fa-github"></i></a></li>
+            </ul>
+        </div>
+        <p class="changing-color-h">&copy; 2023, Soham.com - All rights reserved.</p>
+    </footer>
+</body>
+
+<script>
+    const process = document.getElementById('myBox');
+    process.addEventListener('animationend', () => {
+        process.style.display = 'none';
+    });
+</script>
+<script src="https://kit.fontawesome.com/d950f528aa.js" crossorigin="anonymous"></script>
+
+</html>
